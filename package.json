@@ -1,0 +1,42 @@
+{
+  "name": "text-dropper",
+  "version": "1.2.4",
+  "description": "Der guteste text-dropper der welt, oder zumindest dieser git repo",
+  "main": "dist/index.js",
+  "scripts": {
+    "tsc": "tsc -p tsconfig.json",
+    "start": "ts-node src/index.ts",
+    "exec": "node dist/index.js",
+    "build": "npm run tsc",
+    "start:watch": "nodemon -w ./src -x \"npm run start\" --ext *.ts",
+    "build:watch": "nodemon -w ./src -x \"npm run build\" --ext *.ts",
+    "exec:watch": "nodemon -w ./dist -x \"npm run exec\"",
+    "dev": "nodemon -w $(pwd)/src -x \"npm run tsc; npm run start\" --ext *.ts",
+    "https": "cprox -s 33334 --self-singed-common-domain-name majo.codec.coreunit.net --self-singed-organization-name coreunit.net *=PROXY:http://127.0.0.1:33333",
+    "web": "cprox -p 33333 *=STATIC:./html"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "NobleMajo",
+  "license": "MIT",
+  "dependencies": {
+    "@twurple/api": "^7.0.2",
+    "@twurple/auth": "^7.0.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "gpt4all": "^2.2.0",
+    "marked": "^8.0.1",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.5.9",
+    "@types/node-fetch": "^2.6.5",
+    "cprox": "^1.9.8",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
